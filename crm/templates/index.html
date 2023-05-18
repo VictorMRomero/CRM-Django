@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<main class="md:w-3/5  xl:w-4/5 px-5 py-10 bg-gray-200">
+    
+
+    
+
+    <h2 class="text-3xl font-light text-center">Clientes</h2>
+
+    <div class="flex flex-col mt-10">
+        <div class="py-2 overflow-x-auto">
+            <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+            <table class="min-w-full">
+                <thead class="bg-gray-100 ">
+                    <tr>
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Nombre
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Apellido
+                        </th>
+
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Correo
+                        </th>
+
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Teléfono
+                        </th>
+                        
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Acciones
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Opt
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="listado-clientes" class="bg-white"></tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        {{ cliente.nombre }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        {{ cliente.apellido }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        {{ cliente.correo }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        {{ cliente.telefono }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        {{ cliente.acciones }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        <a href="{% url 'editarcliente' cliente.id %}">✏️</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+    
