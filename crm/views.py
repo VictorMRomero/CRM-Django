@@ -18,7 +18,7 @@ def signup(request):
             'form': UserCreationForm
         })
     else:
-        print(request.POST)
+
         if request.POST['password1'] == request.POST['password2']:
             try:
 
